@@ -7,9 +7,11 @@ utils.commands
 This module contains useful functions and variables for the bot.
 """
 
+import telebot
+
 HELP_MESSAGE = '''
-List of available message
-/cmd1 - do something
+List of available commands
+/cmd1 - next step example
 /cmd2 - do something
 /cmd3 - do something
 /cmd4 - do something
