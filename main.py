@@ -39,5 +39,12 @@ def next_step(message):
     bot.send_message(message.chat.id, 'this is a response')
 
 
+@bot.message_handler(commands=['cmd2'])
+def photo(message):
+    """Sends an image"""
+    with open('cat.png', 'rb') as img:
+        bot.send_photo(message.chat.id, img, caption='This is a title')
+
+
 if __name__ == "__main__":
     bot.polling(none_stop=True)
