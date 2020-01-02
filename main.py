@@ -61,5 +61,17 @@ def audio(message):
         print(err)
 
 
+@bot.message_handler(commands=['cmd4'])
+def document(message):
+    """Sends a document file"""
+    try:
+        with open('document.pdf', 'rb') as doc:
+            bot.send_message(message.chat.id, 'Please wait, this can take a few minutes.')
+            caption = 'message caption'             # Optional
+            bot.send_document(message.chat.id, doc, caption=caption)
+    except Exception as err:
+        print(err)
+
+
 if __name__ == "__main__":
     bot.infinity_polling(True)

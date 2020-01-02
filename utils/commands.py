@@ -12,9 +12,9 @@ import telebot
 HELP_MESSAGE = '''
 List of available commands
 /cmd1 - next step example
-/cmd2 - send image
-/cmd3 - send audio
-/cmd4 - do something
+/cmd2 - sends an image file
+/cmd3 - sends an audio file
+/cmd4 - sends a document file
 /cmd5 - do something
 /cmd6 - do something
 /cmd7 - do something
