@@ -18,7 +18,7 @@ def start(message):
     # bot.reply_to(message, 'Welcome!')
     # =====================================================
 
-    bot.send_message(message.chat.id, 'Welcome!')
+    bot.send_message(message.chat.id, 'Welcome!, use /help get a list of available commands')
 
 
 @bot.message_handler(commands=['help'])
@@ -53,7 +53,7 @@ def audio(message):
         with open('audio.mp3', 'rb') as audio:
             bot.send_message(message.chat.id, 'Please wait, this can take a few minutes.')
             caption = 'message caption'             # Optional
-            duration = 20                           # Optional
+            duration = 29                           # Optional
             performer = 'name of interpreter'       # Optional
             title = 'title song'                    # Optional
             bot.send_audio(message.chat.id, audio, caption=caption, duration=duration, performer=performer, title=title)
@@ -69,6 +69,19 @@ def document(message):
             bot.send_message(message.chat.id, 'Please wait, this can take a few minutes.')
             caption = 'message caption'             # Optional
             bot.send_document(message.chat.id, doc, caption=caption)
+    except Exception as err:
+        print(err)
+
+
+@bot.message_handler(commands=['cmd5'])
+def video(message):
+    """Sends a video file"""
+    try:
+        with open('video.mp4', 'rb') as video:
+            bot.send_message(message.chat.id, 'Please wait, this can take a few minutes.')
+            caption = 'message caption'             # Optional
+            duration = 105							# Optional
+            bot.send_video(message.chat.id, video, caption=caption, duration=duration)
     except Exception as err:
         print(err)
 
