@@ -16,7 +16,7 @@ List of available commands
 /cmd3 - sends an audio file
 /cmd4 - sends a document file
 /cmd5 - sends a video file
-/cmd6 - do something
+/cmd6 - sends location
 /cmd7 - do something
 /cmd8 - do something
 /cmd9 - do something

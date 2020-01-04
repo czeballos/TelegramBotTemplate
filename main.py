@@ -86,5 +86,11 @@ def video(message):
         print(err)
 
 
+@bot.message_handler(commands=['cmd6'])
+def location(message):
+    """Sends location"""
+    bot.send_location(message.chat.id, '-17.7833839', '-63.1822053')
+
+
 if __name__ == "__main__":
     bot.infinity_polling(True)
