@@ -17,7 +17,7 @@ List of available commands
 /cmd4 - sends a document file
 /cmd5 - sends a video file
 /cmd6 - sends location
-/cmd7 - do something
+/cmd7 - sends actions
 /cmd8 - do something
 /cmd9 - do something
 '''

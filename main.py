@@ -92,5 +92,24 @@ def location(message):
     bot.send_location(message.chat.id, '-17.7833839', '-63.1822053')
 
 
+@bot.message_handler(commands=['cmd7'])
+def action(message):
+    """
+    Sends location
+    It must be some of following strings: 
+    typing, 
+    upload_photo, 
+    record_video, 
+    upload_video, 
+    record_audio, 
+    upload_audio, 
+    upload_document, 
+    find_location, 
+    record_video_note, 
+    upload_video_note
+    """
+    bot.send_chat_action(message.chat.id, 'typing')
+
+
 if __name__ == "__main__":
     bot.infinity_polling(True)
