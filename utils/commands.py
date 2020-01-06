@@ -18,6 +18,6 @@ List of available commands
 /cmd5 - sends a video file
 /cmd6 - sends location
 /cmd7 - sends actions
-/cmd8 - do something
+/cmd8 - sends venue's location
 /cmd9 - do something
 '''

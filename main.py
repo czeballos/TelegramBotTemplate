@@ -89,26 +89,39 @@ def video(message):
 @bot.message_handler(commands=['cmd6'])
 def location(message):
     """Sends location"""
-    bot.send_location(message.chat.id, '-17.7833839', '-63.1822053')
+    lat = '-17.7833839'
+    long = '-63.1822053'
+    bot.send_location(message.chat.id, lat, long)
 
 
 @bot.message_handler(commands=['cmd7'])
 def action(message):
     """
     Sends location
-    It must be some of following strings: 
-    typing, 
-    upload_photo, 
-    record_video, 
-    upload_video, 
-    record_audio, 
-    upload_audio, 
-    upload_document, 
-    find_location, 
-    record_video_note, 
+    It must be some of following strings:
+    typing,
+    upload_photo,
+    record_video,
+    upload_video,
+    record_audio,
+    upload_audio,
+    upload_document,
+    find_location,
+    record_video_note,
     upload_video_note
     """
     bot.send_chat_action(message.chat.id, 'typing')
+
+
+@bot.message_handler(commands=['cmd8'])
+def venue(message):
+    """Sends location of a venue"""
+    title = 'Venue\'s name'
+    address = 'This is the venue\'s address'
+    lat = '-17.783803'
+    long = '-63.1810534'
+    foursquare = '58a6357b4988da0f65e87610'         # Optional
+    bot.send_venue(message.chat.id, lat, long, title=title, address=address, foursquare_id=foursquare)
 
 
 if __name__ == "__main__":
