@@ -19,5 +19,5 @@ List of available commands
 /cmd6 - sends location
 /cmd7 - sends actions
 /cmd8 - sends venue's location
-/cmd9 - do something
+/cmd9 - sends conctact's information
 '''

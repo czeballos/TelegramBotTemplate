@@ -124,5 +124,14 @@ def venue(message):
     bot.send_venue(message.chat.id, lat, long, title=title, address=address, foursquare_id=foursquare)
 
 
+@bot.message_handler(commands=['cmd9'])
+def conctact(message):
+    """Sends conctact's information"""
+    phone = '+59177777777'
+    first_name = 'John'
+    last_name = 'Doe'
+    bot.send_contact(message.chat.id, phone, first_name, last_name)
+
+
 if __name__ == "__main__":
     bot.infinity_polling(True)
