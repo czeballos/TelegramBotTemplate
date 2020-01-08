@@ -3,12 +3,13 @@
 
 import os
 import time
-import telebot
 
-from utils.commands import *
+from telebot import TeleBot, types
+
+from utils.commands import HELP_MESSAGE
 
 token = os.environ['token']
-bot = telebot.TeleBot(token)
+bot = TeleBot(token)
 
 
 @bot.message_handler(commands=['start'])
@@ -27,7 +28,7 @@ def help(message):
     bot.send_message(message.chat.id, HELP_MESSAGE)
 
 
-@bot.message_handler(commands=['cmd1'])
+@bot.message_handler(commands=['cmd01'])
 def save(message):
     """Asks for an input"""
     bot.send_message(message.chat.id, 'please write something')
@@ -39,14 +40,14 @@ def next_step(message):
     bot.send_message(message.chat.id, 'this is a response')
 
 
-@bot.message_handler(commands=['cmd2'])
+@bot.message_handler(commands=['cmd02'])
 def photo(message):
     """Sends an image file"""
     with open('cat.png', 'rb') as img:
         bot.send_photo(message.chat.id, img, caption='This is a title')
 
 
-@bot.message_handler(commands=['cmd3'])
+@bot.message_handler(commands=['cmd03'])
 def audio(message):
     """Sends an audio file"""
     try:
@@ -61,7 +62,7 @@ def audio(message):
         print(err)
 
 
-@bot.message_handler(commands=['cmd4'])
+@bot.message_handler(commands=['cmd04'])
 def document(message):
     """Sends a document file"""
     try:
@@ -73,7 +74,7 @@ def document(message):
         print(err)
 
 
-@bot.message_handler(commands=['cmd5'])
+@bot.message_handler(commands=['cmd05'])
 def video(message):
     """Sends a video file"""
     try:
@@ -86,7 +87,7 @@ def video(message):
         print(err)
 
 
-@bot.message_handler(commands=['cmd6'])
+@bot.message_handler(commands=['cmd06'])
 def location(message):
     """Sends location"""
     lat = '-17.7833839'
@@ -94,7 +95,7 @@ def location(message):
     bot.send_location(message.chat.id, lat, long)
 
 
-@bot.message_handler(commands=['cmd7'])
+@bot.message_handler(commands=['cmd07'])
 def action(message):
     """
     Sends location
@@ -113,7 +114,7 @@ def action(message):
     bot.send_chat_action(message.chat.id, 'typing')
 
 
-@bot.message_handler(commands=['cmd8'])
+@bot.message_handler(commands=['cmd08'])
 def venue(message):
     """Sends location of a venue"""
     title = 'Venue\'s name'
@@ -124,13 +125,36 @@ def venue(message):
     bot.send_venue(message.chat.id, lat, long, title=title, address=address, foursquare_id=foursquare)
 
 
-@bot.message_handler(commands=['cmd9'])
+@bot.message_handler(commands=['cmd09'])
 def conctact(message):
     """Sends conctact's information"""
     phone = '+59177777777'
     first_name = 'John'
     last_name = 'Doe'
     bot.send_contact(message.chat.id, phone, first_name, last_name)
+
+
+@bot.message_handler(commands=['cmd10'])
+def button(message):
+    """Creates buttons with "add" function"""
+    markup = types.ReplyKeyboardMarkup(row_width=5)
+    itembtn1 = types.KeyboardButton('1')
+    itembtn2 = types.KeyboardButton('2')
+    itembtn3 = types.KeyboardButton('3')
+    itembtn4 = types.KeyboardButton('4')
+    itembtn5 = types.KeyboardButton('5')
+    itembtn6 = types.KeyboardButton('6')
+    itembtn7 = types.KeyboardButton('7')
+    itembtn8 = types.KeyboardButton('8')
+    itembtn9 = types.KeyboardButton('9')
+    itembtn10 = types.KeyboardButton('10')
+    back = types.KeyboardButton('⬅️')
+    cancel = types.KeyboardButton('❌')
+    forware = types.KeyboardButton('➡️')
+    markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5)
+    markup.add(itembtn6, itembtn7, itembtn8, itembtn9, itembtn10)
+    markup.add(back, cancel, forware)
+    bot.send_message(message.chat.id, 'Press a button', reply_markup=markup)
 
 
 if __name__ == "__main__":
