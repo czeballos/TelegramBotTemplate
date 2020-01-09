@@ -159,6 +159,7 @@ def button1(message):
 
 @bot.message_handler(commands=['cmd11'])
 def button2(message):
+    """Creates buttons with "row" function"""
     markup = types.ReplyKeyboardMarkup()
     itembtn1 = types.KeyboardButton('1')
     itembtn2 = types.KeyboardButton('2')
