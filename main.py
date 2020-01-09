@@ -135,7 +135,7 @@ def conctact(message):
 
 
 @bot.message_handler(commands=['cmd10'])
-def button(message):
+def button1(message):
     """Creates buttons with "add" function"""
     markup = types.ReplyKeyboardMarkup(row_width=5)
     itembtn1 = types.KeyboardButton('1')
@@ -150,10 +150,32 @@ def button(message):
     itembtn10 = types.KeyboardButton('10')
     back = types.KeyboardButton('⬅️')
     cancel = types.KeyboardButton('❌')
-    forware = types.KeyboardButton('➡️')
+    forward = types.KeyboardButton('➡️')
     markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5)
     markup.add(itembtn6, itembtn7, itembtn8, itembtn9, itembtn10)
-    markup.add(back, cancel, forware)
+    markup.add(back, cancel, forward)
+    bot.send_message(message.chat.id, 'Press a button', reply_markup=markup)
+
+
+@bot.message_handler(commands=['cmd11'])
+def button2(message):
+    markup = types.ReplyKeyboardMarkup()
+    itembtn1 = types.KeyboardButton('1')
+    itembtn2 = types.KeyboardButton('2')
+    itembtn3 = types.KeyboardButton('3')
+    itembtn4 = types.KeyboardButton('4')
+    itembtn5 = types.KeyboardButton('5')
+    itembtn6 = types.KeyboardButton('6')
+    itembtn7 = types.KeyboardButton('7')
+    itembtn8 = types.KeyboardButton('8')
+    itembtn9 = types.KeyboardButton('9')
+    itembtn10 = types.KeyboardButton('10')
+    back = types.KeyboardButton('⬅️')
+    cancel = types.KeyboardButton('❌')
+    forward = types.KeyboardButton('➡️')
+    markup.row(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5)
+    markup.row(itembtn6, itembtn7, itembtn8, itembtn9, itembtn10)
+    markup.row(back, cancel, forward)
     bot.send_message(message.chat.id, 'Press a button', reply_markup=markup)
 
 

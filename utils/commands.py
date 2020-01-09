@@ -21,4 +21,5 @@ List of available commands
 /cmd08 - sends venue's location
 /cmd09 - sends conctact's information
 /cmd10 - Buttons Example 1
+/cmd11 - Buttons Exmaple 2
 '''
